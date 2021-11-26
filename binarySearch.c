@@ -2,10 +2,10 @@
 int binarySearch(int arr[], int l, int r, int x) 
 { 
     if (r >= l) { 
-        int mid = l + (r - l) / 2; 
+        int mid = l + (r - l) / 2; // (r + l) may exceed the int limit, thats why its l + (r - l) 
         if (arr[mid] == x) 
             return mid; 
-        if (arr[mid] > x) 
+        if (arr[mid] > x) // if the middle element is greater than we are looking for ( we must search left next )
             return binarySearch(arr, l, mid - 1, x); 
         return binarySearch(arr, mid + 1, r, x); 
     } 
